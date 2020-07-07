@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #735983;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+   <children>
+      <Label layoutX="211.0" layoutY="14.0" text="Реестр терминов" textFill="#ffaf87">
+         <font>
+            <Font name="Montserrat Medium" size="41.0" />
+         </font>
+      </Label>
+      <TabPane layoutY="65.0" prefHeight="735.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Таблица терминов">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="800.0">
+                     <children>
+                        <TableView fx:id="tableViewOnlyTermins" onMouseClicked="#tableViewOnlyTerminsEvent" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="talbleViewOnlyTerminsColumn" prefWidth="199.0" text="Термины" />
+                          </columns>
+                        </TableView>
+                        <TableView fx:id="tableViewTerminsInfo" layoutX="240.0" prefHeight="201.0" prefWidth="560.0">
+                          <columns>
+                            <TableColumn fx:id="tableViewTerminsInfoParent" prefWidth="179.0" text="Используемые термины" />
+                            <TableColumn fx:id="tableViewTerminInfoRegion" minWidth="0.0" prefWidth="180.0" text="Область науки/хозяйства" />
+                              <TableColumn fx:id="tableViewTerminInfoDescription" prefWidth="200.0" text="Толкование" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="217.0" layoutY="208.0" text="Полная таблица терминов" textFill="#ffaf87">
+                           <font>
+                              <Font name="Montserrat Medium" size="29.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tableViewTermis" layoutY="251.0" prefHeight="175.0" prefWidth="800.0">
+                           <columns>
+                              <TableColumn fx:id="tableViewTerminsTermin" prefWidth="119.0" text="Термин" />
+                              <TableColumn fx:id="tableViewTerminParent" prefWidth="175.0" text="Используемые термины" />
+                              <TableColumn fx:id="tableviewTerminRegion" minWidth="0.0" prefWidth="213.0" text="Область науки/хозяйства" />
+                              <TableColumn fx:id="tableViewTerminDescription" prefWidth="292.0" text="Толкование" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="refreshMainTableButton" layoutX="673.0" layoutY="652.0" mnemonicParsing="false" onAction="#refreshMainTableButtonEvent" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #735983 #735983; -fx-border-color: #ffaf87#ffaf87; -fx-border-radius: 6;" text="Обновить" textFill="#ffaf87">
+                           <font>
+                              <Font name="Montserrat Medium" size="13.0" />
+                           </font>
+                        </Button>
+                        <TextField fx:id="terminField" layoutX="418.0" layoutY="499.0" prefHeight="27.0" prefWidth="250.0">
+                           <font>
+                              <Font name="Montserrat Medium" size="13.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="terminFieldDescription" layoutX="419.0" layoutY="532.0" prefHeight="27.0" prefWidth="250.0" />
+                        <TextField fx:id="textFieldRegion" layoutX="419.0" layoutY="566.0" prefHeight="27.0" prefWidth="250.0" />
+                        <ComboBox fx:id="textFieldParent" layoutX="418.0" layoutY="600.0" prefHeight="27.0" prefWidth="250.0" />
+                        <Label layoutX="100.0" layoutY="498.0" text="Термин:" textFill="#ffaf87">
+                           <font>
+                              <Font name="Montserrat Medium" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="531.0" text="Толкование:" textFill="#ffaf87">
+                           <font>
+                              <Font name="Montserrat Medium" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="565.0" text="Область науки/хозяйства:" textFill="#ffaf87">
+                           <font>
+                              <Font name="Montserrat Medium" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="345.0" layoutY="444.0" text="Фильтры:" textFill="#ffaf87">
+                           <font>
+                              <Font name="Montserrat Medium" size="29.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="100.0" layoutY="600.0" text="Используемый термин:" textFill="#ffaf87">
+                           <font>
+                              <Font name="Montserrat Medium" size="22.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="clearFilters" layoutX="20.0" layoutY="652.0" mnemonicParsing="false" onAction="#clearFiltersEvent" prefHeight="36.0" prefWidth="211.0" style="-fx-background-color: #735983 #735983; -fx-border-color: #ffaf87#ffaf87; -fx-border-radius: 6;" text="Очистить фильтры" textFill="#ffaf87">
+                           <font>
+                              <Font name="Montserrat Medium" size="13.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="rerfeshWithFilers" layoutX="435.0" layoutY="652.0" mnemonicParsing="false" onAction="#refreshWithFiltersEvent" prefHeight="36.0" prefWidth="219.0" style="-fx-background-color: #735983 #735983; -fx-border-color: #ffaf87#ffaf87; -fx-border-radius: 6;" text="Обновить с фильтрами" textFill="#ffaf87">
+                           <font>
+                              <Font name="Montserrat Medium" size="13.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Аналитика">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="refreshRegion" layoutX="666.0" layoutY="640.0" mnemonicParsing="false" onAction="#refreshRegionEvent" prefHeight="36.0" prefWidth="113.0" style="-fx-background-color: #735983 #735983; -fx-border-color: #ffaf87#ffaf87; -fx-border-radius: 6;" text="Обновить" textFill="#ffaf87">
+                           <font>
+                              <Font name="Montserrat Medium" size="13.0" />
+                           </font>
+                        </Button>
+                        <TableView fx:id="tableViewRegion" prefHeight="203.0" prefWidth="807.0">
+                          <columns>
+                            <TableColumn fx:id="tableViewRegionName" prefWidth="401.0" text="Область науки/хозяйства" />
+                            <TableColumn fx:id="tableViewRegionNum" prefWidth="398.0" text="Количество записей" />
+                          </columns>
+                        </TableView>
+                        <PieChart fx:id="pieChart" layoutX="96.0" layoutY="240.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
